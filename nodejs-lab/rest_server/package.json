@@ -1,0 +1,26 @@
+{
+  "name": "training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "test": "",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Biswajit-Sardar/Training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Biswajit-Sardar/Training/issues"
+  },
+  "homepage": "https://github.com/Biswajit-Sardar/Training#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

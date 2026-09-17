@@ -1,41 +1,31 @@
-// server.js
+// os-demo.js
 
-const http = require("http");
+const os = require("os");
 
-// Create a server
-// The callback function runs every time someone makes a request to this server
-const server = http.createServer((request,response)=> {
-    // request contains information about the incoming request
-    // response is used to send data back to the client
+console.log("Operating System:", os.type());
+console.log("Platform:", os.platform());
+console.log("Architecture:", os.arch());
+console.log("Release:", os.release());
 
-    console.log(`${request.method} ${request.url}`);
+console.log("Hostname:", os.hostname());
+console.log("Home Directory:", os.homedir());
+console.log("Temp Directory:", os.tmpdir());
 
-    // Set the response status code and headers
-    response.writeHead(200, {
-        "Content-Type":"text/html"
-    });
+// Memory information (in bytes)
+const totalMemGB = (os.totalmem()/ 1024 / 1024 / 1024).toFixed(2);
+const freeMemGB = (os.freemem()/ 1024 / 1024 / 1024).toFixed(2);
+console.log(`Total Memory: ${totalMemGB} GB`);
+console.log(`Free Memory: ${freeMemGB} GB`);
 
-    // Handle different routes
-    if (request.url=== "/") {
-        response.end("<h1>Home Page</h1><p>Welcome to the server.</p>");
-    }else if (request.url=== "/about") {
-        response.end("<h1>About Page</h1><p>This is a Node.js server.</p>");
-    }else if (request.url=== "/api/data") {
-        response.writeHead(200, {"Content-Type":"application/json" });
-        const data = {
-            message:"Hello from the API",
-            timestamp:new Date().toISOString(),
-            status:"ok"
-        };
-        response.end(JSON.stringify(data));
-    }else {
-        response.writeHead(404, {"Content-Type":"text/html" });
-        response.end("<h1>404 Not Found</h1>");
-    }
-});
+// CPU information
+const cpus = os.cpus();
+console.log(`CPU: ${cpus[0].model}`);
+console.log(`Cores: ${cpus.length}`);
 
-// Start listening on port 3000
-const PORT = 3000;
-server.listen(PORT, ()=> {
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
+// System uptime in hours
+const uptimeHours = (os.uptime()/ 3600).toFixed(2);
+console.log(`Uptime: ${uptimeHours} hours`);
+
+// Network interfaces
+const networkInterfaces = os.networkInterfaces();
+console.log("Network Interfaces:", Object.keys(networkInterfaces));
