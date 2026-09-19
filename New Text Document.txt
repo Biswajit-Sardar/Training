@@ -1,0 +1,9 @@
+mongodb+srv://admin:admin@cluster0.goapsqw.mongodb.net/mern-student-db?appName=Cluster0
+
+
+mongodb+srv://       Protocol (SRV for DNS-based discovery)
+admin                Your database username
+admin                Your database password
+cluster0.goapsqw     Your cluster address
+.mongodb.net         Atlas domain
+appName=Cluster0         Default database to connect to
